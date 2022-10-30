@@ -4,9 +4,11 @@
 
 "Print" = Amostre 
 
-"+" = Bote
+"+" = Bota
 
-"-" = Tire
+"-" = Tira
+
+"While" = ArrochaEnquanto
 
 "IF" = SoSe
 
@@ -32,7 +34,7 @@ FACTOR = INT | STRING | IDENTIFIER | (( Bota | Tira | Nam ) , FACTOR) | "(" , RE
 
 TERM = FACTOR, { ("Vez" | "Dividi" | "E"), FACTOR };
 
-EXPRESSION = TERM, { ("Bote" | "Tire" | "OU"), TERM } ;
+EXPRESSION = TERM, { ("Bota" | "Tira" | "OU"), TERM } ;
 
 ASSIGNMENT = (IDENTIFIER, "Recebe", RELEXPRESSION) | ( "(", { RELEXPRESSION, { "," | RELEXPRESSION } }, ")" );
 
