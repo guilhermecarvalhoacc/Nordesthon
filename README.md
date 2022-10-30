@@ -2,14 +2,22 @@
 
 ## *EBNF*
 
-"Print" = Amostre
+"Print" = Amostre 
+
 "+" = Bote
+
 "-" = Tire
+
 "IF" = SoSe
+
 "Else" = SeNumFor
+
 "Read" = DigaAi
+
 "!" = Nam
+
 "*" = Vez
+
 "/" = Dividi
 
 
