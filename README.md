@@ -23,10 +23,11 @@
 "/" = Dividi
 
 
-
 BLOCK = (λ | Statement);
 
-STATEMENT =  (λ | ASSIGNMENT | ("Amostre", "(", RELEXPRESSION, ")")  | VAR  | BLOCK | ("SoSe", "(", RELEXPRESSION ,")", STATEMENT, (("SeNumFor", STATEMENT) | λ )) | ("ArrochaEnquanto", "(", RELEXPRESSION ,")", STATEMENT));
+STATEMENT =  (λ | ASSIGNMENT | ("Amostre", "(", RELEXPRESSION, ")")  | VAR  | BLOCK | CONDITIONS)
+
+CONDITIONS = ("SoSe", "(", RELEXPRESSION ,")", STATEMENT, (("SeNumFor", STATEMENT) | λ )) | ("ArrochaEnquanto", "(", RELEXPRESSION ,")", STATEMENT));
 
 RELEXPRESSION = EXPRESSION , {("MaisMiudoQ" | "MaisGraudoQ" | QueNem") , EXPRESSION } ;
 
