@@ -25,7 +25,7 @@
 
 BLOCK = (λ | Statement);
 
-STATEMENT =  (λ | ASSIGNMENT | ("Amostre", "(", RELEXPRESSION, ")")  | VAR  | BLOCK | CONDITIONS)
+STATEMENT =  ((λ | ASSIGNMENT | ("Amostre", "(", RELEXPRESSION, ")")  | VAR, ";")  | BLOCK | CONDITIONS);
 
 CONDITIONS = ("SoSe", "(", RELEXPRESSION ,")", STATEMENT, (("SeNumFor", STATEMENT) | λ )) | ("ArrochaEnquanto", "(", RELEXPRESSION ,")", STATEMENT));
 
