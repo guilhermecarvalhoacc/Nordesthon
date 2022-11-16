@@ -1,5 +1,7 @@
 %{
-#include <sintatica.tab.h>
+    #include <stdio.h>
+    #include <string.h>
+    #include "y.tab.h"
 %}
 
 %%
@@ -19,7 +21,7 @@
 "}"                     return CC;
 ","                     return VIRGULA;
 "."                     return DOT;
-";"                     return PV;
+";"                     return PONTOVIRGULA;
 "amostre"               return PRINT;
 "DigaAi"                return READ;
 "ArrochaEnquanto"       return WHILE;

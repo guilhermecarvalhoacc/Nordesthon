@@ -1,7 +1,7 @@
 %{
   #include<stdio.h>
   int yylex();
-  void yyerror(const char *s) { printf(ERROR: %sn, s); }
+  void yyerror(const char *s) { printf("ERROR: %s\n", s); }
 %}
 
 %token INT
@@ -26,9 +26,17 @@
 %token STRING
 %token VIRGULA
 %token DOISPONTOS
+%token VARTYPE
+%token READ
+%token PRINT
+%token IF
+%token ELSE
+%token PV
+%token WHILE
+
 %token RETURN
 
-%start program
+%start block
 
 %%
 
@@ -70,15 +78,15 @@ factor: INT
     ;
 
 
-statement : VARTYPE IDENTIFIER EQUAL relexpression;
+statement : VARTYPE IDENTIFIER EQUAL relexpression
           | block
-          | PRINT OP relexpression CP;
+          | PRINT OP relexpression CP
           | IF OP relexpression CP statement ELSE statement 
           | PV;
-          | WHILE OP relexpression CP statement;
+          | WHILE OP relexpression CP statement
           | VARTYPE IDENTIFIER
-          | VIRGULA IDENTIFIER;
-          SEMI_COLON
+          | VIRGULA IDENTIFIER
+          PONTOVIRGULA
           ;
 
 %%
