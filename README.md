@@ -23,7 +23,7 @@
 "/" = Dividi
 
 
-BLOCK = (λ | Statement);
+BLOCK = ("{", λ , "}" | "{", Statement,"}") ;
 
 STATEMENT =  ((λ | ASSIGNMENT | ("Amostre", "(", RELEXPRESSION, ")")  | VAR, ";")  | BLOCK | CONDITIONS);
 
