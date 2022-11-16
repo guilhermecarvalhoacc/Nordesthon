@@ -23,7 +23,7 @@
 "/" = Dividi
 
 
-BLOCK = (λ | Statement);
+BLOCK = ("{", λ , "}" | "{", Statement,"}") ;
 
 STATEMENT =  ((λ | ASSIGNMENT | ("Amostre", "(", RELEXPRESSION, ")")  | VAR, ";")  | BLOCK | CONDITIONS);
 
@@ -33,7 +33,7 @@ RELEXPRESSION = EXPRESSION , {("MaisMiudoQ" | "MaisGraudoQ" | QueNem") , EXPRESS
 
 FACTOR = INT | STRING | IDENTIFIER | (( Bota | Tira | Nam ) , FACTOR) | "(" , RELEXPRESSION, ")" | READ, "(" , ")" ;
 
-TERM = FACTOR, { ("Vez" | "Dividi" | "E"), FACTOR };
+TERM = FACTOR, { ("Vez" | "Dividi" | "ETBM"), FACTOR };
 
 EXPRESSION = TERM, { ("Bota" | "Tira" | "OU"), TERM } ;
 
