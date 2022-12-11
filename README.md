@@ -25,11 +25,13 @@ CONDITIONS = ("SoSe", "(", RELEXPRESSION ,")", STATEMENT, (("SeNumFor", STATEMEN
 
 RELEXPRESSION = EXPRESSION , {("<" | ">" | "==") , EXPRESSION } ;
 
-FACTOR = INT | STRING | IDENTIFIER | (( "+" | "-" | "!" ) , FACTOR) | "(" , RELEXPRESSION, ")" | READ, "(" , ")" ;
+FACTOR = INT | STRING | IDENTIFIER_FACTOR | (( "+" | "-" | "!" ) , FACTOR) | "(" , RELEXPRESSION, ")" | READ, "(" , ")" ;
 
-TERM = FACTOR, { ("Vez" | "Dividi" | "ETBM"), FACTOR };
+IDENTIFIER_FACTOR = ( λ | "(" , ( ")" | { RELEXPRESSION, "," }, ")" );
 
-EXPRESSION = TERM, { ("Bota" | "Tira" | "OU"), TERM } ;
+TERM = FACTOR, { ("*" | "/" | "&&"), FACTOR };
+
+EXPRESSION = TERM, { ("+" | "-" | "||"), TERM } ;
 
 ASSIGNMENT = (IDENTIFIER, "Recebe", RELEXPRESSION) | ( "(", { RELEXPRESSION, { "," | RELEXPRESSION } }, ")" );
 
