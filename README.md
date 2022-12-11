@@ -19,7 +19,7 @@ DECLARATION = ( "fn" , IDENTIFIER , "(" , ( IDENTIFIER, ( "," | ":") "TYPE", ","
 
 BLOCK = ("{", λ , "}" | "{", STATEMENT,"}") ;
 
-STATEMENT =  ((λ | (IDENTIFIER, ("=" , RELEXPRESSION) | , { RELEXPRESSION, ","}) | ("Amostre", "(", RELEXPRESSION, ")")  | VAR, ";")  | BLOCK | CONDITIONS | "retorne" , RELEXPRESSION);
+STATEMENT =  ((λ | (ASSIGNMENT | "(" , (")" | RELEXPRESSION, ",") | ("Amostre", "(", RELEXPRESSION, ")")  | VAR, ";")  | BLOCK | CONDITIONS | "retorne" , RELEXPRESSION);
 
 CONDITIONS = ("SoSe", "(", RELEXPRESSION ,")", STATEMENT, (("SeNumFor", STATEMENT) | λ )) | ("ArrochaEnquanto", "(", RELEXPRESSION ,")", STATEMENT));
 
@@ -33,7 +33,7 @@ TERM = FACTOR, { ("*" | "/" | "&&"), FACTOR };
 
 EXPRESSION = TERM, { ("+" | "-" | "||"), TERM } ;
 
-ASSIGNMENT = (IDENTIFIER, "Recebe", RELEXPRESSION) | ( "(", { RELEXPRESSION, { "," | RELEXPRESSION } }, ")" );
+ASSIGNMENT = (IDENTIFIER, "=", RELEXPRESSION) | ( "(", { RELEXPRESSION, { "," | RELEXPRESSION } }, ")" );
 
 READ = "DigaAi", "(" , ")" ;
 
