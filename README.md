@@ -4,10 +4,6 @@
 
 "Print" = Amostre 
 
-"+" = Bota
-
-"-" = Tira
-
 "While" = ArrochaEnquanto
 
 "IF" = SoSe
@@ -16,12 +12,9 @@
 
 "Read" = DigaAi
 
-"!" = Nam
-
 "*" = Vez
 
 "/" = Dividi
-
 
 BLOCK = ("{", λ , "}" | "{", Statement,"}") ;
 
