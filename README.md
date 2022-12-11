@@ -12,19 +12,20 @@
 
 "Read" = DigaAi
 
-"*" = Vez
 
-"/" = Dividi
+PROGRAM = (λ | DECLARATION);
 
-BLOCK = ("{", λ , "}" | "{", Statement,"}") ;
+DECLARATION = ( "fn" , IDENTIFIER , "(" , ( IDENTIFIER, ( "," | ":") "TYPE", ",") | ")" , "->", TYPE, BLOCK);
 
-STATEMENT =  ((λ | ASSIGNMENT | ("Amostre", "(", RELEXPRESSION, ")")  | VAR, ";")  | BLOCK | CONDITIONS);
+BLOCK = ("{", λ , "}" | "{", STATEMENT,"}") ;
+
+STATEMENT =  ((λ | (IDENTIFIER, ("=" , RELEXPRESSION) | , { RELEXPRESSION, ","}) | ("Amostre", "(", RELEXPRESSION, ")")  | VAR, ";")  | BLOCK | CONDITIONS | "retorne" , RELEXPRESSION);
 
 CONDITIONS = ("SoSe", "(", RELEXPRESSION ,")", STATEMENT, (("SeNumFor", STATEMENT) | λ )) | ("ArrochaEnquanto", "(", RELEXPRESSION ,")", STATEMENT));
 
-RELEXPRESSION = EXPRESSION , {("MaisMiudoQ" | "MaisGraudoQ" | QueNem") , EXPRESSION } ;
+RELEXPRESSION = EXPRESSION , {("<" | ">" | "==") , EXPRESSION } ;
 
-FACTOR = INT | STRING | IDENTIFIER | (( Bota | Tira | Nam ) , FACTOR) | "(" , RELEXPRESSION, ")" | READ, "(" , ")" ;
+FACTOR = INT | STRING | IDENTIFIER | (( "+" | "-" | "!" ) , FACTOR) | "(" , RELEXPRESSION, ")" | READ, "(" , ")" ;
 
 TERM = FACTOR, { ("Vez" | "Dividi" | "ETBM"), FACTOR };
 
